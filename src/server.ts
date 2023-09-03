@@ -2,7 +2,6 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { enableMapSet } from 'immer';
-import { handler } from '../build/handler';
 import { DEFAULT_PORT } from './lib/config';
 
 enableMapSet();
@@ -15,8 +14,11 @@ app.get(`/api`, async (req, res) => {
 	res.sendStatus(StatusCodes.OK);
 });
 
-// let SvelteKit handle everything else, including serving prerendered pages and static assets
-app.use(handler);
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'integration') {
+	const { handler } = await import('../build/handler');
+	// let SvelteKit handle everything else, including serving prerendered pages and static assets
+	app.use(handler);
+}
 
 const PORT = process.env.PORT || DEFAULT_PORT;
 app.listen(PORT, () => {
