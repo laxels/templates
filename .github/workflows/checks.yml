@@ -1,0 +1,13 @@
+name: Checks
+on: push
+jobs:
+  Checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.5.1'
+          cache: 'yarn'
+      - run: yarn setupCI
+      - run: yarn checks
