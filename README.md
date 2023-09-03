@@ -1,3 +1,7 @@
+# SETUP
+
+First of all, replace all occurrences of `{{PROJECT_NAME}}` with your project name.
+
 # {{PROJECT_NAME}}
 
 Project description here
