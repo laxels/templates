@@ -7,7 +7,7 @@
 		"node": "20.5.1"
 	},
 	"scripts": {
-		"dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
+		"dev": "yarn && concurrently \"yarn dev:server\" \"yarn dev:client\"",
 		"dev:integration": "NODE_ENV=integration concurrently \"PORT=4175 yarn start:server\" \"VITE_PORT=4174 yarn dev:client\"",
 		"dev:server": "nodemon --watch src/ --ext ts,json --exec \"tsx src/server.ts\"",
 		"dev:client": "vite dev",

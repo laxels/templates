@@ -3,7 +3,7 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 const config: PlaywrightTestConfig = {
 	webServer: [
 		{
-			command: `yarn build && yarn start:integration`,
+			command: `yarn start:integration`,
 			port: 4173
 		},
 		{
