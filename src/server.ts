@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import express from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { enableMapSet } from 'immer';
@@ -7,10 +8,10 @@ import { DEFAULT_PORT } from './lib/config';
 enableMapSet();
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
-// Sample API route
-app.get(`/api`, async (req, res) => {
+app.get(`/api/sample`, async (req, res) => {
 	res.sendStatus(StatusCodes.OK);
 });
 
