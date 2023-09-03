@@ -33,7 +33,7 @@ Start prod server
 
 ```bash
 # We use a shell script here because for some reason stuff breaks when we do `pm2 start yarn start`
-pm2 start server.bash
+pm2 start server.sh
 ```
 
 Save `PM2` process list so the server is started on machine reboot
