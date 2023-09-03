@@ -14,7 +14,7 @@ app.get(`/api`, async (req, res) => {
 	res.sendStatus(StatusCodes.OK);
 });
 
-if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'integration') {
+if (process.env.NODE_ENV !== 'development') {
 	const { handler } = await import('../build/handler');
 	// let SvelteKit handle everything else, including serving prerendered pages and static assets
 	app.use(handler);
