@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 import { goto } from './utils';
 
-test.describe(``, () => {
-	test(``, async ({ page }) => {
+test.describe(`sample test category`, () => {
+	test(`sample test`, async ({ page }) => {
 		await goto(page, `/`);
 		await expect(page.getByText(`HI MOM`)).toBeVisible();
 	});
