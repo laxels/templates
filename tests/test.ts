@@ -4,6 +4,7 @@ import { goto } from './utils';
 test.describe(``, () => {
 	test(``, async ({ page }) => {
 		await goto(page, `/`);
+		await expect(page.getByText(`HI MOM`)).toBeVisible();
 	});
 });
 
